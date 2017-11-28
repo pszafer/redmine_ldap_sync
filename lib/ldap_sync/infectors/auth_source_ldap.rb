@@ -60,7 +60,7 @@ module LdapSync::Infectors::AuthSourceLdap
 
       @closure_cache = new_memory_cache if setting.nested_groups_enabled?
 
-      with_ldap_connection do |_|
+      with_ldap_connection do |ldap|
         ldap_users[:disabled].each do |login|
           user = self.users.where("LOWER(login) = ?", login.mb_chars.downcase).first
 
@@ -269,7 +269,7 @@ module LdapSync::Infectors::AuthSourceLdap
           error_message = if user.email_is_taken
             mail_owner = User.find_by_mail(user.mail)
             fmt = User.name_formatter[:firstname_lastname]
-            "email already taken by #{mail_owner.name(fmt)} (#{mail_owner.login})"
+            "email already taken by )"
           else
             "#{user.errors.full_messages.join('", "')}"
           end
