@@ -12,6 +12,36 @@ rake redmine:plugins:ldap_sync:sync_all LOG_LEVEL=debug ACTIVATE_USERS=1
 
 My config for Active Directory:
 
+### Ldap settings
+| Name  | Settings |
+| ------------- | ------------- |
+| Base settings  | Customized  |
+| GRoup base DN | DC, DC, ...  |
+| Users objectclass | person  |
+| Users search scope | whole subtree  |
+| Group objectclass |  group  |
+| Group name patter |   |
+| Group search filter |   |
+| Account disabled test | flags.to_i & 2 != 0  |
+| GRoup membreship | On the user class |
+| Nested groups | disabled  |
+| GRoup name | samaccountname  |
+| Account flags | useraccountcontrol  |
+| Primary group | |
+| Groups | memberOf |
+| Groupid | distingushedName |
+
+### Synchronization actions
+| Name  | Settings |
+| ------------- | ------------- |
+| Synchronize on login | User fields  |
+| Users must be members of | |
+| Administrators group | |
+| Add users to group | |
+| Create users | [ ] checked |
+| Create groups | [ ] checked |
+| Dynamic groups | Disabled |
+| User / group fields | givenName, sn, mail |
 
 =================
 
