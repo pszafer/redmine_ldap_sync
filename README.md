@@ -10,8 +10,11 @@ Usage I've tested:
 rake redmine:plugins:ldap_sync:sync_all LOG_LEVEL=debug ACTIVATE_USERS=1
 ```
 
+My config for Active Directory:
+
 
 =================
+
 # OLD PLUGIN INFO
 
 This redmine plugin extends the ldap authentication with user/group
