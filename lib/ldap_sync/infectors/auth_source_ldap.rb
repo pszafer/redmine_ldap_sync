@@ -171,7 +171,7 @@ module LdapSync::Infectors::AuthSourceLdap
           error_message = if user.email_is_taken
             mail_owner = User.find_by_mail(user.mail)
             fmt = User.name_formatter[:firstname_lastname]
-            "email already taken by #{mail_owner.name(fmt)} (#{mail_owner.login})"
+            "email already taken"
           else
             "#{user.errors.full_messages.join('", "')}"
           end
